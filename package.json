@@ -4,21 +4,23 @@
   "description": "Browser Fingerprint",
   "main": "app.js",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",    
+    "babel-polyfill": "^6.26.0",
     "fingerprintjs2": "^2.0.6",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
     "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.11.0"
+    "parcel-bundler": "^1.11.0",
+    "shx": "^0.3.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel index.html",
+    "prebuild": "shx rm -rf dist",
     "build": "parcel build index.html --public-url /browser-fingerprint/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
